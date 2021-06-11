@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet/style.css">
-    <script type="application/javascript"> src="./js/index.js"></script>
-    <script type="application/javascript"> src="./js/hero.js"></script>
-    <script type="application/javascript"> src="./js/bugs.js"></script>
+    <script type="text/javascript" src="./js/index.js" defer></script>
+    <script type="text/javascript" src="./js/hero.js" defer></script>
+    <script type="text/javascript" src="./js/bugs.js" defer></script>
 </head>
 <body>
-    <canvas id=canvas></canvas>
-</body>
+    <div class="header">
+        <section id="section-left">
+        <div class="game-intro">
+            <button id="start-button">StartGame</button>
+            <p>Use the left and right arrow to control your IronHacker!</p>
+            <img src="images/arrows.png" alt="" class="arrows-img" />
+            <div id="scoreDiv">Score: <span id="score">0</span></div>
+          </div>
+        </section>
+        <section id="section-right">
+            <div class="fade">
+                <section class="star-wars">
+                    <div class="crawl">
+                        <div class="title">
+                            <p>IronHacking</p>
+                            <h1>Debug for cheap course</h1>
+                        </div>
+                        <p>Become an IronHacker, debug your javascript code, keep your code clean and pay less for your bootcamp...</p>
+                        <p>Clear the Bug code and see the price of your Ironhacking Bootcamp goes down.</p>
+                        <p>Just move left or right and clean with space...</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+    <div id="game-board">
+      <canvas id="canvas" width="1024" height="700"></canvas>
+    </div>
+  </body>
 </html>

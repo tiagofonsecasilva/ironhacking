@@ -1,0 +1,115 @@
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sections  */
+#section-left {
+    padding-right: 50px;
+};
+
+#section-right {
+    padding-left: 50px;
+}
+
+body {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .game-intro {
+    float: left;
+    padding: 0% 10%;
+  }
+  
+  .game-intro p {
+    font-size: 18px;
+    font-family: "Verdana"
+  }
+  
+  .logo-img {
+    width: 350px;
+  }
+  
+  .arrows-img {
+    width: 150px;
+  }
+  
+  body button {
+    font-size: 30px;
+    background-color: #870007;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  #game-board {
+      float: left;
+      padding: 20px 0px;
+  }
+  
+  canvas {
+    background-image: url(../images/hacking-screen-wallpapers.png);
+    background-size: cover;
+  }
+
+/* Intro Start wars */
+.fade {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    top: -25px;
+    background-image: linear-gradient(0deg, transparent, black 75%);
+    z-index: 1;
+  }
+  
+  .star-wars {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 800px;
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 500%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 150%;
+    perspective: 400px;
+    text-align: justify;
+  }
+  
+  .crawl {
+    position: relative;
+    top: 99999px;
+    transform-origin: 50% 100%;
+    animation: crawl 60s linear;
+  }
+  
+  .crawl > .title {
+    font-size: 90%;
+    text-align: center;
+    color: red
+  }
+  
+  .crawl > .title h1 {
+    margin: 0 0 100px;
+    text-transform: uppercase;
+  }
+  
+  @keyframes crawl {
+    0% {
+      top: -100px;
+      transform: rotateX(20deg)  translateZ(0);
+    }
+    100% { 
+      top: -6000px;
+      transform: rotateX(25deg) translateZ(-2500px);
+    }
+  }
+  /* Intro Start wars */
