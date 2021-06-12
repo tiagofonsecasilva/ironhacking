@@ -1,5 +1,5 @@
 
-class Hacker { //4.1
+class Hacker { 
     constructor () { 
         this.x = 220;
         this.y = 650;
@@ -7,25 +7,25 @@ class Hacker { //4.1
         this.heigth = 50;
     }
 
-    draw() { //4.2
-        const image = new Image(); // car image
+    draw() { 
+        const image = new Image();
         image.src = '../images/hacker.png'
         context.drawImage(image, this.x, this.y, this.width, this.heigth);
     }
 
-    moveHacker(key) { //4.3
+    moveHacker(key) { 
     context.clearRect(this.x, this.y, this.width, this.heigth);
     switch(key) {
         case "ArrowLeft":
-            if (this.x > 20) {
+            if (this.x > 0) {
                 this.x -=10;
             }
             break;
         case "ArrowRight":
-            if (this.x < 430) {
+            if (this.x < 974) {
                 this.x += 10
             }
             break;
-    } // initial process car get out of canvas so we will do if inside arrows
+    }
     }
 }

@@ -1,15 +1,19 @@
 // 5. constução de obstáculos
 
 class Bug {
-    constructor (x, y, width, height ) { //arguments because will keep changing
+   constructor (x, y) { 
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.width = 50;
+        this.heigth = 50;
     }
 
-    draw() {
-        context.fillStyle = "orange";
-        context.fillRect(this.x, this.y, this.width, this.height)
+    
+
+    draw() { 
+        const image = new Image();
+        image.src = '../images/1x/Asset-3bug.png';
+        context.drawImage(image, this.x, this.y, this.width, this.heigth);
+
     }
 }

@@ -3,9 +3,12 @@ console.log("I'm a javascript");
 const raceCanvas = document.getElementById("canvas");
 const context = raceCanvas.getContext("2d");
 document.getElementById("game-board").style.display = "none";
+document.getElementById("currentPrice").style.display = "none"; 
 document.getElementById("start-button").onclick = () => {
   document.getElementById("game-board").style.display = "block"; 
   document.querySelector(".fade").style.display ="none";
+  document.getElementById("initialPrice").style.display = "none";
+  document.getElementById("currentPrice").style.display = "block"; 
   startGame();
 };
 
@@ -48,19 +51,19 @@ function updateCanvas() {
   currentGame.bugs.forEach((bug, index) => {
     bug.y += 1;
     bug.draw();
-    if (detectCollision(bug)) {
-      currentGame.gameOver = true;
-      currentGame.bugsFrequency = 0;
-      currentGame.score = 0;
-      currentGame.bugs = [];
-      document.getElementById("score").innerHTML = 0;
-      document.getElementById("game-board").style.display = "none";
-      alert('BOOOOM! Game Over')
-    };
+    // if (detectCollision(bug)) {
+    //   currentGame.gameOver = true;
+    //   currentGame.bugsFrequency = 0;
+    //   currentGame.score = 0;
+    //   currentGame.bugs = [];
+    //   document.getElementById("score").innerHTML = 0;
+    //   document.getElementById("game-board").style.display = "none";
+    //   alert('BOOOOM! Game Over')
+    // };
 
 
     if (bug.y > raceCanvas.height) {
-      currentGame.score++;
+      currentGame.score+= 100;
       document.getElementById("score").innerHTML = currentGame.score;
       currentGame.bugs.splice(index, 1);
     }
