@@ -9,6 +9,7 @@
     <script type="text/javascript" src="./js/index.js" defer></script>
     <script type="text/javascript" src="./js/hero.js" defer></script>
     <script type="text/javascript" src="./js/bugs.js" defer></script>
+    <script type="text/javascript" src="./js/music.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -18,7 +19,12 @@
             <p>Use the left and right arrow to control your IronHacker!</p>
             <img src="images/arrows.png" alt="" class="arrows-img" />
             <div id="scoreDiv">Score: <span id="score">0</span></div>
-          </div>
+            <div class="musicOn">
+                <audio id="audio" style="display:none;" src="./music/christmas.mp3" controls autoplay loop onloadeddata="setHalfVolume()">
+              </div>
+              <div class="container">
+                <p class="title">Turn music on or off</p>
+                <img class="musicOn" src="./music/soundOnOff/soundOnBlack.png" alt="">
         </section>
         <section id="section-right">
             <div class="fade">
