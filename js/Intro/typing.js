@@ -5,7 +5,7 @@ var timeChar = 40;       // time until next letter
 
 var cursorChar = '&#9608;';
 
-var originId = ['line1', 'line2','line3'];
+var originId = ['line1', 'line2','line3', 'line4'];
 var originText = new Array();
 for (var i = 0; i < originId.length; i++) {
   originText.push(document.getElementById(originId[i]).innerHTML);

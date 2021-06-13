@@ -1,0 +1,12 @@
+#game-board {
+    float: left;
+}
+
+canvas {
+  background-image: url(../images/hacking-screen-wallpapers.png);
+  background-size: cover;
+}
+
+#score {
+ color: red
+}

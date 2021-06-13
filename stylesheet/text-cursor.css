@@ -3,6 +3,18 @@
   visibility: hidden;
 }
 
+.visible {
+  color: white;
+  text-align: left;
+}
+
+p#cursor-line {
+  color: green;
+}
+
+.typed-cursor {
+  color: green;
+}
 /* ----- blinking cursor animation ----- */
 .typed-cursor{
   opacity: 1;

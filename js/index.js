@@ -3,12 +3,17 @@ console.log("I'm a javascript");
 const raceCanvas = document.getElementById("canvas");
 const context = raceCanvas.getContext("2d");
 document.getElementById("game-board").style.display = "none";
-document.getElementById("currentPrice").style.display = "none"; 
+document.getElementById("currentPrice").style.display = "none";
+var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
+if (customerName!= null) {
+  document.getElementById("welcome").innerHTML = "Hello " + customerName;
+}
+
 document.getElementById("start-button").onclick = () => {
   document.getElementById("game-board").style.display = "block"; 
-  document.querySelector(".fade").style.display ="none";
+  document.querySelector(".section-right").style.display ="none";
   document.getElementById("initialPrice").style.display = "none";
-  document.getElementById("currentPrice").style.display = "block"; 
+  document.getElementById("currentPrice").style.display = "block";
   startGame();
 };
 
@@ -28,6 +33,12 @@ function detectCollision(bug) { //try to comment out to see what happens
     currentGame.hacker.x > bug.x + bug.width || // detect from right
     currentGame.hacker.x + currentGame.hacker.width < bug.x || // detect colision from left
     currentGame.hacker.y > bug.y + bug.height // detect colisiojn from top
+  );
+}
+
+function scoreBump(score) { //try to comment out to see what happens
+  return (
+    currentGame.score > 10000
   );
 }
 
@@ -51,6 +62,9 @@ function updateCanvas() {
   currentGame.bugs.forEach((bug, index) => {
     bug.y += 1;
     bug.draw();
+      if (scoreBump(score)) {
+      alert('Try UX Bootcamp! Game Over')
+      };
     // if (detectCollision(bug)) {
     //   currentGame.gameOver = true;
     //   currentGame.bugsFrequency = 0;
