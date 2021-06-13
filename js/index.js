@@ -15,6 +15,11 @@ document.getElementById("start-button").onclick = () => {
   document.getElementById("initialPrice").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
   startGame();
+  window.addEventListener("DOMContentLoaded", event => {
+    const audio = document.querySelector("musicOn");
+    audio.volume = 0.2;
+    audio.play();
+  });
 };
 
 let currentGame;
@@ -63,6 +68,12 @@ function updateCanvas() {
     bug.y += 1;
     bug.draw();
       if (scoreBump(score)) {
+      currentGame.gameOver = true;
+      currentGame.bugsFrequency = 0;
+      currentGame.score = 0;
+      currentGame.bugs = [];
+      document.getElementById("score").innerHTML = 0;
+      document.getElementById("game-board").style.display = "none";
       alert('Try UX Bootcamp! Game Over')
       };
     // if (detectCollision(bug)) {
