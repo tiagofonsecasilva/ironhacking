@@ -2,14 +2,14 @@
 class Hacker { 
     constructor () { 
         this.x = 220;
-        this.y = 650;
-        this.width = 50;
-        this.heigth = 50;
+        this.y = 615;
+        this.width = 85;
+        this.heigth = 85;
     }
 
     draw() { 
         const image = new Image();
-        image.src = '../images/hacker.png'
+        image.src = './images/hacker.png'
         context.drawImage(image, this.x, this.y, this.width, this.heigth);
     }
 
@@ -22,7 +22,7 @@ class Hacker {
             }
             break;
         case "ArrowRight":
-            if (this.x < 974) {
+            if (this.x < 939) {
                 this.x += 10
             }
             break;

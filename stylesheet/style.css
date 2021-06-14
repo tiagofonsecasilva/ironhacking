@@ -14,11 +14,11 @@
 .section-right {
   background-color: black;
   margin-top: 100px;
-
 }
 .col-md-9 {
   background-color: black;
   height: 700px;
+  padding-left: 0;
 }
 
 .row {
