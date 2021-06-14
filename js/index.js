@@ -15,11 +15,6 @@ document.getElementById("start-button").onclick = () => {
   document.getElementById("initialPrice").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
   startGame();
-  window.addEventListener("DOMContentLoaded", event => {
-    const audio = document.querySelector("musicOn");
-    audio.volume = 0.2;
-    audio.play();
-  });
 };
 
 let currentGame;
