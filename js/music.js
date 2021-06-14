@@ -1,5 +1,5 @@
-let on_off = document.querySelector('.container .musicOn');
+let musicOn = document.querySelector('.musicOn');
 
-on_off.onclick = function() {
+musicOn.onclick = function() {
   audio.play()
 };
