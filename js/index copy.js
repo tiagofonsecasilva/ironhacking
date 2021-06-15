@@ -63,13 +63,13 @@ function detectCollisionFire(bug, fire) {
       (fire.y > bug.y + bug.height))
 }
 
-function scoreBump(score) {
+function scoreBump(score) { // tentar que fique só com uma função
   return (
     currentGame.score > 10000
   );
 }
 
-function scoreFinished(score) {
+function scoreFinished(score) { // tentar que fique só com uma função
   return (
     currentGame.score < 0
   );
@@ -126,14 +126,16 @@ function updateCanvas() {
       currentGame.bugsFrequency = 0;
       currentGame.score = 0;
       currentGame.bugs = [];
-      document.getElementById("score").innerHTML = 0;
+      document.getElementById("score").innerHTML = current.score;
       document.getElementById("game-board").style.display = "none";
       alert('Try UX Bootcamp! Game Over')
       };
 
       if (scoreFinished(score)) {
+        currentGame.gameOver = true;
         document.getElementById("game-board").style.display = "none";
         document.getElementById("finished").style.display = "block";
+        document.getElementById("score").innerHTML = 0;
       }
 
     if (bug.y > hackingCanvas.height) {
