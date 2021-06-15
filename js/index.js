@@ -28,12 +28,17 @@ function startGame() {
   updateCanvas();
 };
 
-function detectCollision(bug) { //try to comment out to see what happens
-  return !(
-    currentGame.hacker.x > bug.x + bug.width || // detect from right
-    currentGame.hacker.x + currentGame.hacker.width < bug.x || // detect colision from left
-    currentGame.hacker.y > bug.y + bug.height // detect colisiojn from top
-  );
+function detectCollision(bug) {
+    return !((currentGame.hacker.x > bug.x + bug.width) ||
+        (currentGame.hacker.x + currentGame.hacker.width < bug.x) ||
+        (currentGame.hacker.y > bug.y + bug.height))
+}
+function detectCollisionFire(bug, fire) {
+
+    return !((fire.x > bug.x + bug.width) ||
+        (fire.x + fire.width < bug.x) ||
+        (fire.y > bug.y + bug.height))
+
 }
 
 function scoreBump(score) { //try to comment out to see what happens
@@ -46,6 +51,7 @@ function updateCanvas() {
   context.clearRect(0, 0, raceCanvas.clientWidth, raceCanvas.clientHeight);
   currentGame.hacker.draw();
   currentGame.bugsFrequency++;
+  
   if (currentGame.bugsFrequency % 100 === 1) {
     const randomBugX = Math.floor(Math.random() * 450);
     const randomBugY = 0;

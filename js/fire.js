@@ -1,26 +1,22 @@
-class Obstacle {
-    constructor (x, y, width, height ) { 
+// 5. constução de obstáculos
+
+class Fire {
+    constructor (x) {
         this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        this.y = 700;
+        this.width = 5;
+        this.height = 10;
     }
 
     draw() {
-        context.fillStyle = "white";
+        context.fillStyle = "red";
         context.fillRect(this.x, this.y, this.width, this.height)
     }
 
     fireEvent(key) { 
         context.clearRect(this.x, this.y, this.width, this.heigth);
-        switch(key) {
-            case "ArrowUp":
-                if (this.x > 0) {
-                    this.x -=10;
-                }
-                break;
+        if(key === "ArrowUp") {
+            shootingEvent ();
         }
         }
-
-
 }

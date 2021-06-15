@@ -13,19 +13,19 @@ class Hacker {
         context.drawImage(image, this.x, this.y, this.width, this.heigth);
     }
 
-    moveHacker(key) { 
-    context.clearRect(this.x, this.y, this.width, this.heigth);
-    switch(key) {
-        case "ArrowLeft":
-            if (this.x > 0) {
-                this.x -=10;
-            }
+    moveHacker(keyCode) {
+        context.clearRect(this.x, this.y, this.width, this.height);
+        switch(keyCode) {
+            case 37: 
+                if (this.x > 10) {
+                    this.x -= 10;
+                }
             break;
-        case "ArrowRight":
-            if (this.x < 939) {
-                this.x += 10
-            }
+            case 39: 
+                if (this.x < 895) {
+                    this.x += 10
+                }
             break;
-    }
+        }
     }
 }

@@ -4,9 +4,9 @@ class Game {
     constructor() {
         this.hacker = {};
         this.bugs = [];
-        this.obstacles = [];
+        this.fires = [];
         this.score = 0;
-        this.obstaclesFrequency = 0;
+        this.firesFrequency = 0;
         this.bugsFrequency = 0;
         this.animationID = null;
         this.gameOver = false;

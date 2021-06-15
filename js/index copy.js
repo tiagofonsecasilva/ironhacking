@@ -17,26 +17,33 @@ document.getElementById("start-button").onclick = () => {
   startGame();
 };
 
+document.addEventListener('keydown', (e) => {
+  e.preventDefault()
+  currentGame.hacker.moveHacker(e.keyCode);
+  // currentGame.fire.moveFire(e.keyCode);
+  if (e.keyCode === 32) {
+      currentGame.fires.push(new Fire(currentGame.hacker.x+42.5));
+      fire.play();
+  }
+});
+
+
 let currentGame;
 function startGame() {
   currentGame = new Game();
-  //Instantiate new hacker
   let currentHacker = new Hacker();
-  //Assign my new hacker to my new game
   currentGame.hacker = currentHacker;
   currentGame.hacker.draw();
-  updateCanvas();
+  currentFire = new Fire();
+  currentGame.fire = currentFire;
+  currentGame.fire.draw();
+updateCanvas();
 };
 
-function detectCollision(bug) { //try to comment out to see what happens
-  return !(
-    currentGame.obstacle.x > bug.x + bug.width || // detect from right
-    currentGame.obstacle.x + currentGame.bug.width < bug.x || // detect colision from left
-    currentGame.obstacle.y > bug.y + bug.height // detect colisiojn from top
-  );
-}
 
-function scoreBump(score) { //try to comment out to see what happens
+
+
+function scoreBump(score) {
   return (
     currentGame.score > 10000
   );
@@ -46,26 +53,24 @@ function updateCanvas() {
   context.clearRect(0, 0, raceCanvas.clientWidth, raceCanvas.clientHeight);
   currentGame.hacker.draw();
   currentGame.bugsFrequency++;
-  currentGame.obstaclesFrequency++;
-  if (currentGame.obstaclesFrequency % 100 === 1) {
-    const randomObstacleX = Math.floor(Math.random() * 700);
-    const randomObstacleY = Math.floor(Math.random() * 1024);
-    const randomObstacleWidth = 5;
-    const randomObstacleHeight = 20;
-    const newObstacle = new Obstacle(
-      randomObstacleX,
-      randomObstacleY,
-      randomObstacleWidth,
-      randomObstacleHeight
-    );
-    
-  }
+  currentGame.firesFrequency++;
 
-  currentGame.obstacles.forEach((obstacle) => {
-    obstacle.y -= 1;
-    obstacle.draw();
-  });
+  // if (currentGame.firesFrequency % 100 === 1) {
+  //   const randomFireX = Math.floor(Math.random() * 1024);
+  //   const newFire = new Fire(
+  //     randomFireX,
+  //   );
+  //   currentGame.fires.push(newFire);
+  // }
   
+  currentGame.fires.forEach((fire, index) => {
+    fire.y -= 6;
+    fire.draw();
+    if (fire.y < 0) {
+        currentGame.fires.splice(index, 1);
+    }
+})
+
   if (currentGame.bugsFrequency % 100 === 1) {
     const randomBugX = Math.floor(Math.random() * 450);
     const randomBugY = 0;
@@ -93,25 +98,16 @@ function updateCanvas() {
       alert('Try UX Bootcamp! Game Over')
       };
 
-
     if (bug.y > raceCanvas.height) {
       currentGame.score+= 100;
       document.getElementById("score").innerHTML = currentGame.score;
       currentGame.bugs.splice(index, 1);
     }
   });
-  // requestAnimationFrame(updateCanvas); // 22. The game keeps playing even if we don't see so:
+
   if (!currentGame.gameOver) {
     currentGame.animationId = requestAnimationFrame(updateCanvas);
   }
 }
-//hacker move event listener
-document.addEventListener("keydown", (keyboardEvent) => {
-  currentGame.hacker.moveHacker(keyboardEvent.key);
-});
-
-document.addEventListener("keydown", (keyboardEvent) => {
-  currentGame.obstacle.fireEvent(keyboardEvent.key);
-});
 
 
