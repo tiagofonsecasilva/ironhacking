@@ -55,13 +55,9 @@ function updateCanvas() {
   if (currentGame.bugsFrequency % 100 === 1) {
     const randomBugX = Math.floor(Math.random() * 450);
     const randomBugY = 0;
-    const randomBugWidth = Math.floor(Math.random() * 50) + 20;
-    const randomBugHeight = Math.floor(Math.random() * 50) + 20;
     const newBug = new Bug(
       randomBugX,
       randomBugY,
-      randomBugWidth,
-      randomBugHeight
     );
     currentGame.bugs.push(newBug);
   }
@@ -77,16 +73,6 @@ function updateCanvas() {
       document.getElementById("game-board").style.display = "none";
       alert('Try UX Bootcamp! Game Over')
       };
-    // if (detectCollision(bug)) {
-    //   currentGame.gameOver = true;
-    //   currentGame.bugsFrequency = 0;
-    //   currentGame.score = 0;
-    //   currentGame.bugs = [];
-    //   document.getElementById("score").innerHTML = 0;
-    //   document.getElementById("game-board").style.display = "none";
-    //   alert('BOOOOM! Game Over')
-    // };
-
 
     if (bug.y > raceCanvas.height) {
       currentGame.score+= 100;

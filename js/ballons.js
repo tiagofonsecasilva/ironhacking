@@ -1,8 +1,8 @@
 let currentGame;
-let bugsFrequency = 0;
+let balloonsFrequency = 0;
 let animationId;
 
-let burst = new Audio("./audio/Bug.mp3");
+let burst = new Audio("./audio/Balloon.mp3");
 //let game = new Audio("./audio/game.mp3")
 let fire = new Audio("./audio/fire.mp3");
 let song = new Audio("./audio/game.mp3");
@@ -38,19 +38,19 @@ document.getElementById('start-button').onclick = () => {
 
 document.addEventListener('keydown', (e) => {
     e.preventDefault()
-    currentGame.hacker.moveHacker(e.keyCode);
-    // currentGame.fire.moveFire(e.keyCode);
-    if (e.keyCode === 66) {
-        currentGame.fires.push(new Fire(currentGame.hacker.x));
+    currentGame.arch.moveArch(e.keyCode);
+    // currentGame.arrow.moveArrow(e.keyCode);
+    if (e.keyCode === 32) {
+        currentGame.arrows.push(new Arrow(currentGame.arch.x));
         fire.play();
     }
 });
 
-function checkBugs() {
+function checkBalloons() {
     setInterval(() => {
-        currentGame.bugs.forEach((bug, index) => {
-            if(bug.blow) {
-             currentGame.bugs.splice(index, 1)
+        currentGame.balloons.forEach((balloon, index) => {
+            if(balloon.blow) {
+             currentGame.balloons.splice(index, 1)
         }
         })
     }, 1000)
@@ -62,99 +62,99 @@ function startGame() {
     document.getElementById('intro').style.display = 'none'
     //Instantiate a new game
     currentGame = new Game();
-    //Instantiate a new hacker
-    currentHacker = new Hacker();
-    currentGame.hacker = currentHacker;
-    currentGame.hacker.draw();
-    currentFire = new Fire();
-    currentGame.fire = currentFire;
-    currentGame.fire.draw();
-     checkBugs()
+    //Instantiate a new arch
+    currentArch = new Arch();
+    currentGame.arch = currentArch;
+    currentGame.arch.draw();
+    currentArrow = new Arrow();
+    currentGame.arrow = currentArrow;
+    currentGame.arrow.draw();
+     checkBalloons()
     song.play();
     cancelAnimationFrame(animationId);//cancel any animation
     //that might exit from the previous game
     updateCanvas();
 }
 
-function detectCollision(bug) {
-    return !((currentGame.hacker.x > bug.x + bug.width) ||
-        (currentGame.hacker.x + currentGame.hacker.width < bug.x) ||
-        (currentGame.hacker.y > bug.y + bug.height))
+function detectCollision(balloon) {
+    return !((currentGame.arch.x > balloon.x + balloon.width) ||
+        (currentGame.arch.x + currentGame.arch.width < balloon.x) ||
+        (currentGame.arch.y > balloon.y + balloon.height))
 }
-function detectCollisionFire(bug, fire) {
+function detectCollisionArrow(balloon, arrow) {
 
-    return !((fire.x > bug.x + bug.width) ||
-        (fire.x + fire.width < bug.x) ||
-        (fire.y > bug.y + bug.height))
+    return !((arrow.x > balloon.x + balloon.width) ||
+        (arrow.x + arrow.width < balloon.x) ||
+        (arrow.y > balloon.y + balloon.height))
 
 }
 
 function updateCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    currentGame.hacker.draw();
+    currentGame.arch.draw();
 
-    bugsFrequency++;
-    console.log(bugsFrequency)
-    if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
-         bugsFrequency > 500 && bugsFrequency % 80 === 0) {
-        const randomBugsX = Math.floor(Math.random() * 895);
-        const randomBugY = 0;
-        //  const randomBugWidth = 100; //Math.floor(Math.random() * 50) + 20;
-        //  const randomBugHeight = 100; //Math.floor(Math.random() * 50) + 20;
-        const newBug = new Bug(
-            randomBugX,
-            randomBugY
+    balloonsFrequency++;
+    console.log(balloonsFrequency)
+    if (balloonsFrequency < 500 && balloonsFrequency % 100 === 1 ||
+         balloonsFrequency > 500 && balloonsFrequency % 80 === 0) {
+        const randomBalloonX = Math.floor(Math.random() * 895);
+        const randomBalloonY = 0;
+        //  const randomBalloonWidth = 100; //Math.floor(Math.random() * 50) + 20;
+        //  const randomBalloonHeight = 100; //Math.floor(Math.random() * 50) + 20;
+        const newBalloon = new Balloon(
+            randomBalloonX,
+            randomBalloonY
         );
-        currentGame.bugs.push(newBug);
+        currentGame.balloons.push(newBalloon);
     }
 
-    currentGame.bugs.forEach((bug, index) => {
+    currentGame.balloons.forEach((balloon, index) => {
         /*
-        if(bugsFrequency > 500) {
-            bug.y += 3; 
+        if(balloonsFrequency > 500) {
+            balloon.y += 3; 
         }
         */
-        bug.y += 1;
-        bug.draw();
+        balloon.y += 1;
+        balloon.draw();
 
-        currentGame.fires.forEach((fire, i) => {
-            if (detectCollisionFire(bug, fire)) {
-                bug.blow = true
+        currentGame.arrows.forEach((arrow, i) => {
+            if (detectCollisionArrow(balloon, arrow)) {
+                balloon.blow = true
                 burst.play();
-                currentGame.fires.splice(i, 1)
+                currentGame.arrows.splice(i, 1)
                 currentGame.score++;
                 document.getElementById('score').innerHTML = currentGame.score;
 
             }
         })
-        if (detectCollision(bug)) {
-            // bug.blow = true;
-            bug.blow = true
+        if (detectCollision(balloon)) {
+            // balloon.blow = true;
+            balloon.blow = true
             burst.play();
             currentGame.score++;
             document.getElementById('score').innerHTML = currentGame.score;
             /*
-              bugsFrequency = 0;
+              balloonsFrequency = 0;
               
               document.getElementById('score').innerHTML = 0;
-              currentGame.bugs = [];
+              currentGame.balloons = [];
               document.getElementById('game-board').style.display = 'none';
               */
 
         }
 
 
-        if (bug.y > canvas.height) {
+        if (balloon.y > canvas.height) {
             currentGame.score--;
             document.getElementById('score').innerHTML = currentGame.score;
-            currentGame.bugs.splice(index, 1);
+            currentGame.balloons.splice(index, 1);
             if (currentGame.score < -8) {
                 alert('Game Over!Try Again...');
                 song.pause();
-                bugsFrequency = 0;
+                balloonsFrequency = 0;
                 currentGame.score = 0;
                 document.getElementById('score').innerHTML = 0;
-                currentGame.bugs = [];
+                currentGame.balloons = [];
                 document.getElementById('game-board').style.display = 'none';
 
 
@@ -164,11 +164,11 @@ function updateCanvas() {
         }
     });
 
-    currentGame.fires.forEach((fire, index) => {
-        fire.y -= 6;
-        fire.draw();
-        if (fire.y < 0) {
-            currentGame.fires.splice(index, 1);
+    currentGame.arrows.forEach((arrow, index) => {
+        arrow.y -= 6;
+        arrow.draw();
+        if (arrow.y < 0) {
+            currentGame.arrows.splice(index, 1);
         }
     })
 

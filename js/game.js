@@ -5,7 +5,7 @@ class Game {
         this.hacker = {};
         this.bugs = [];
         this.fires = [];
-        this.score = 0;
+        this.score = 6000;
         this.firesFrequency = 0;
         this.bugsFrequency = 0;
         this.animationID = null;
