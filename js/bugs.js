@@ -21,7 +21,7 @@ class Bug {
         if(!this.blow) {
             this.image.src = './images/1x/Asset-3bug.png';
         } else {
-            this.image.src = './images/explosion.png';
+            this.image.src = '../images/1x/Asset-4bug.png';
            
         }
         context.drawImage(this.image, this.x, this.y, this.width, this.height);
