@@ -10,3 +10,16 @@ canvas {
 #score {
  color: red
 }
+
+#finished {
+  background-image: url(../images/clean-code.webp);
+  height: 2048px;
+  background-repeat: no-repeat;
+  width: 2048px;
+  color:black
+}
+
+#finished h1 {
+  text-align: left;
+  color: black;
+}

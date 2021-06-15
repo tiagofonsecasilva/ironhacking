@@ -4,6 +4,7 @@ const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
 document.getElementById("game-board").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
+document.getElementById("finished").style.display = "none";
 var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
@@ -68,6 +69,13 @@ function scoreBump(score) {
   );
 }
 
+function scoreFinished(score) {
+  return (
+    currentGame.score < 0
+  );
+}
+
+
 function updateCanvas() {
   context.clearRect(0, 0, hackingCanvas.clientWidth, hackingCanvas.clientHeight);
   currentGame.hacker.draw();
@@ -102,7 +110,7 @@ function updateCanvas() {
       if (detectCollisionFire(bug, fire)) {
         bug.blow = true
         currentGame.fires.splice(i, 1)
-        currentGame.score-= 100;
+        currentGame.score-= 3000;
         document.getElementById('score').innerHTML = currentGame.score;
       }
     });
@@ -122,6 +130,11 @@ function updateCanvas() {
       document.getElementById("game-board").style.display = "none";
       alert('Try UX Bootcamp! Game Over')
       };
+
+      if (scoreFinished(score)) {
+        document.getElementById("game-board").style.display = "none";
+        document.getElementById("finished").style.display = "block";
+      }
 
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 100;
