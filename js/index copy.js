@@ -22,7 +22,7 @@ document.addEventListener('keydown', (e) => {
   currentGame.hacker.moveHacker(e.keyCode);
   // currentGame.fire.moveFire(e.keyCode);
   if (e.keyCode === 32) {
-      currentGame.fires.push(new Fire(currentGame.hacker.x+42.5));
+      currentGame.fires.push(new Fire(currentGame.hacker.x+29.5));
       fire.play();
   }
 });

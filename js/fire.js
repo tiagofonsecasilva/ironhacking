@@ -3,20 +3,14 @@
 class Fire {
     constructor (x) {
         this.x = x;
-        this.y = 700;
-        this.width = 5;
-        this.height = 10;
+        this.y = 615;
+        this.width = 25;
+        this.heigth = 25;
     }
 
-    draw() {
-        context.fillStyle = "red";
-        context.fillRect(this.x, this.y, this.width, this.height)
+    draw() { 
+        const image = new Image();
+        image.src = './images/cromada.png'
+        context.drawImage(image, this.x, this.y, this.width, this.heigth);
     }
-
-    fireEvent(key) { 
-        context.clearRect(this.x, this.y, this.width, this.heigth);
-        if(key === "ArrowUp") {
-            shootingEvent ();
-        }
-        }
 }
