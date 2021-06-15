@@ -30,9 +30,9 @@ function startGame() {
 
 function detectCollision(bug) { //try to comment out to see what happens
   return !(
-    currentGame.hacker.x > bug.x + bug.width || // detect from right
-    currentGame.hacker.x + currentGame.hacker.width < bug.x || // detect colision from left
-    currentGame.hacker.y > bug.y + bug.height // detect colisiojn from top
+    currentGame.obstacle.x > bug.x + bug.width || // detect from right
+    currentGame.obstacle.x + currentGame.bug.width < bug.x || // detect colision from left
+    currentGame.obstacle.y > bug.y + bug.height // detect colisiojn from top
   );
 }
 
@@ -46,6 +46,26 @@ function updateCanvas() {
   context.clearRect(0, 0, raceCanvas.clientWidth, raceCanvas.clientHeight);
   currentGame.hacker.draw();
   currentGame.bugsFrequency++;
+  currentGame.obstaclesFrequency++;
+  if (currentGame.obstaclesFrequency % 100 === 1) {
+    const randomObstacleX = Math.floor(Math.random() * 700);
+    const randomObstacleY = Math.floor(Math.random() * 1024);
+    const randomObstacleWidth = 5;
+    const randomObstacleHeight = 20;
+    const newObstacle = new Obstacle(
+      randomObstacleX,
+      randomObstacleY,
+      randomObstacleWidth,
+      randomObstacleHeight
+    );
+    
+  }
+
+  currentGame.obstacles.forEach((obstacle) => {
+    obstacle.y -= 1;
+    obstacle.draw();
+  });
+  
   if (currentGame.bugsFrequency % 100 === 1) {
     const randomBugX = Math.floor(Math.random() * 450);
     const randomBugY = 0;
@@ -55,10 +75,11 @@ function updateCanvas() {
       randomBugX,
       randomBugY,
       randomBugWidth,
-      randomBugHeight,
+      randomBugHeight
     );
     currentGame.bugs.push(newBug);
   }
+
   currentGame.bugs.forEach((bug, index) => {
     bug.y += 1;
     bug.draw();
@@ -71,15 +92,6 @@ function updateCanvas() {
       document.getElementById("game-board").style.display = "none";
       alert('Try UX Bootcamp! Game Over')
       };
-    // if (detectCollision(bug)) {
-    //   currentGame.gameOver = true;
-    //   currentGame.bugsFrequency = 0;
-    //   currentGame.score = 0;
-    //   currentGame.bugs = [];
-    //   document.getElementById("score").innerHTML = 0;
-    //   document.getElementById("game-board").style.display = "none";
-    //   alert('BOOOOM! Game Over')
-    // };
 
 
     if (bug.y > raceCanvas.height) {
@@ -97,3 +109,9 @@ function updateCanvas() {
 document.addEventListener("keydown", (keyboardEvent) => {
   currentGame.hacker.moveHacker(keyboardEvent.key);
 });
+
+document.addEventListener("keydown", (keyboardEvent) => {
+  currentGame.obstacle.fireEvent(keyboardEvent.key);
+});
+
+

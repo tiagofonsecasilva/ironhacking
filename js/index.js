@@ -55,7 +55,7 @@ function updateCanvas() {
       randomBugX,
       randomBugY,
       randomBugWidth,
-      randomBugHeight,
+      randomBugHeight
     );
     currentGame.bugs.push(newBug);
   }
