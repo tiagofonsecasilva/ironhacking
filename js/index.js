@@ -5,6 +5,7 @@ const context = hackingCanvas.getContext("2d");
 document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
+document.getElementById("middle").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
@@ -104,16 +105,16 @@ function updateCanvas() {
         document.getElementById("score").innerHTML = 0;
       }
 
+    if (scoreMiddle(score)) {
+      currentGame.gameOver = false;
+      document.querySelector(".middle").style.display = "block";
+      alert('test');
+    }
+
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 100;
       document.getElementById("score").innerHTML = currentGame.score;
       currentGame.bugs.splice(index, 1);
-    }
-
-    if (currentGame.score === 5000) {
-        var img = document.createElement('img');
-        img.src = "../images/intro.gif";
-        document.body.appendChild(img);
     }
   });
 

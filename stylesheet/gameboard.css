@@ -22,6 +22,14 @@ canvas {
   color:black
 }
 
+.middle {
+  background-image: url(./images/raccon.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 65px;
+  margin-left: 61px;
+}
+
 #finished h1 {
   text-align: left;
   color: black!important;

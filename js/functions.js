@@ -20,13 +20,13 @@ function detectCollision(bug) {
     return (
       currentGame.score < 0
     );
-  }
+  } 
 
-  function addTheImage() {
-    var img = document.createElement('img');
-    img.src = "../images/";
-    document.body.appendChild(img);
-    }   
+  function scoreMiddle(score) { // tentar que fique só com uma função
+    return (
+      currentGame.score === 6000
+    );
+  } 
 
   function checkBugs() {
     setInterval(() => {
