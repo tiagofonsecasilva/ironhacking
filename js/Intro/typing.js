@@ -1,7 +1,7 @@
 // set typing speed and wait times
 var timeInit = 1000;     // initial wait before typing first line
-var timeGap = 1000;      // wait time between each line
-var timeChar = 40;       // time until next letter
+var timeGap = 2050;      // wait time between each line
+var timeChar = 80;       // time until next letter
 
 var cursorChar = '&#9608;';
 
@@ -31,6 +31,7 @@ var typeWriter = function(index) {
       // stops the function from self-calling when all letters are typed
       if (letterCount === fullText.length) {
         loc.innerHTML = '&gt;&gt; ' + showText;
+        setTimeout(() => { loc.className = 'hidden'; }, 2000);
       } else {
         loc.innerHTML = '&gt;&gt; ' + showText + '<span class="typed-cursor">' + cursorChar + '</span>';
         typeLetter();

@@ -4,6 +4,9 @@
 
 .container {
     background-color:#7844e6;
+    background-image: url(../images/intro.gif);
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 /* Neo Effects */
@@ -82,3 +85,4 @@ button#start-button {
     transform: translate(-50%, -50%);
     font-size: 75px;
 }
+

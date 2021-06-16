@@ -5,16 +5,19 @@ const context = hackingCanvas.getContext("2d");
 document.getElementById("game-board").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
-// var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
-// if (customerName!= null) {
-//   document.getElementById("welcome").innerHTML = "Hello " + customerName;
-// }
+var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
+if (customerName!= null) {
+  document.getElementById("welcome").innerHTML = "Hello " + customerName;
+}
 
 document.getElementById("start-button").onclick = () => {
   document.getElementById("game-board").style.display = "block"; 
-  document.querySelector(".section-right").style.display ="none";
+  document.getElementById("section-right").style.display ="none";
   document.getElementById("initialPrice").style.display = "none";
+  document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
+  document.getElementById("section-bottom").style.display = "none";
+  document.getElementById("start-button").style.display = "none";
   startGame();
 };
 
@@ -112,6 +115,11 @@ function updateCanvas() {
   if (!currentGame.gameOver) {
     currentGame.animationId = requestAnimationFrame(updateCanvas);
   }
+
+  if (currentGame.score === 5000) {
+    rakoon.draw()
+  }
+
 }
 
 
