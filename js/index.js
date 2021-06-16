@@ -5,10 +5,10 @@ const context = hackingCanvas.getContext("2d");
 document.getElementById("game-board").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
-var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
-if (customerName!= null) {
-  document.getElementById("welcome").innerHTML = "Hello " + customerName;
-}
+// var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
+// if (customerName!= null) {
+//   document.getElementById("welcome").innerHTML = "Hello " + customerName;
+// }
 
 document.getElementById("start-button").onclick = () => {
   document.getElementById("game-board").style.display = "block"; 
@@ -26,17 +26,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-function checkBugs() {
-  setInterval(() => {
-      currentGame.bugs.forEach((bug, index) => {
-          if(bug.blow) {
-           currentGame.bugs.splice(index, 1)
-      }
-      })
-  }, 1000)
-}
-
-
 let currentGame;
 let bugsFrequency = 0;
 function startGame() {
@@ -50,31 +39,6 @@ function startGame() {
   checkBugs();
   updateCanvas();
 };
-
-function detectCollision(bug) {
-  return !((currentGame.hacker.x > bug.x + bug.width) ||
-      (currentGame.hacker.x + currentGame.hacker.width < bug.x) ||
-      (currentGame.hacker.y > bug.y + bug.height))
-}
-function detectCollisionFire(bug, fire) {
-
-  return !((fire.x > bug.x + bug.width) ||
-      (fire.x + fire.width < bug.x) ||
-      (fire.y > bug.y + bug.height))
-}
-
-function scoreBump(score) { // tentar que fique só com uma função
-  return (
-    currentGame.score > 10000
-  );
-}
-
-function scoreFinished(score) { // tentar que fique só com uma função
-  return (
-    currentGame.score < 0
-  );
-}
-
 
 function updateCanvas() {
   context.clearRect(0, 0, hackingCanvas.clientWidth, hackingCanvas.clientHeight);

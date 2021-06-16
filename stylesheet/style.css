@@ -9,16 +9,15 @@
 /* Bootstrap */
 #section-left {
   padding-right: 50px;
+  background-color: rgb(121 67 230);
 }
 
-.section-right {
+.section-bottom {
   background-color: black;
   margin-top: 100px;
   padding-left: 50px;
 }
 .col-md-9 {
-  background-color: black;
-  height: 700px;
   padding-left: 0;
 }
 

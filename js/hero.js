@@ -5,12 +5,12 @@ class Hacker {
         this.y = 615;
         this.width = 85;
         this.heigth = 85;
+        this.image = new Image();
     }
 
     draw() { 
-        const image = new Image();
-        image.src = './images/hacker.png'
-        context.drawImage(image, this.x, this.y, this.width, this.heigth);
+        this.image.src = './images/hacker.png'
+        context.drawImage(this.image, this.x, this.y, this.width, this.heigth);
     }
 
     moveHacker(keyCode) {
