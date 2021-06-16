@@ -7,11 +7,11 @@ class Bug {
     this.width = 30;
     this.height = 30;
     this.image = new Image();
-    this.blow = false;
+    this.clean = false;
     }
 
     draw() {
-        if(!this.blow) {
+        if(!this.clean) {
             this.image.src = './images/1x/Asset-3bug.png';
         } else {
             this.image.src = '../images/broom3-unscreen.gif';

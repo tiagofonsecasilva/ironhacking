@@ -23,7 +23,7 @@ canvas {
 }
 
 .middle {
-  background-image: url(./images/raccon.gif);
+  background-image: url(../images/raccon.gif);
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: 65px;

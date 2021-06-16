@@ -6,15 +6,12 @@ document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
 document.getElementById("middle").style.display = "none";
-let intro = new Audio('./sound/intro.mp3');
-intro.play();
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
 }
 
 document.getElementById("start-button").onclick = () => {
-  intro.pause();
   document.querySelector(".align-middle").style.display = "none";
   document.getElementById("test").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
@@ -54,7 +51,7 @@ function updateCanvas() {
   currentGame.bugsFrequency++;
   currentGame.firesFrequency++;
   currentGame.fires.forEach((fire, index) => {
-    fire.y -= 6;
+    fire.y-=15;
     fire.draw();
     if (fire.y < 0) {
         currentGame.fires.splice(index, 1);
@@ -65,7 +62,7 @@ function updateCanvas() {
   console.log(bugsFrequency)
   if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
   bugsFrequency > 500 && bugsFrequency % 100 === 0) {
-    const randomBugX = Math.floor(Math.random() * 900);
+    const randomBugX = Math.floor(Math.random() * 885);
     const randomBugY = 0;
     const newBug = new Bug(
       randomBugX,
@@ -80,7 +77,7 @@ function updateCanvas() {
 
     currentGame.fires.forEach((fire, i) => {
       if (detectCollisionFire(bug, fire)) {
-        bug.blow = true
+        bug.clean = true
         clean.play();
         currentGame.fires.splice(i, 1)
         currentGame.score-= 100;
@@ -89,7 +86,7 @@ function updateCanvas() {
     });
 
     if (detectCollision(bug)) {
-      bug.blow = true
+      bug.clean = true
       clean.play();
       currentGame.score--;
       document.getElementById('score').innerHTML = currentGame.score;
@@ -105,18 +102,23 @@ function updateCanvas() {
       alert('Try UX Bootcamp! Game Over')
       };
 
-      if (scoreFinished(score)) {
+      if (currentGame.score < 0) {
         currentGame.gameOver = true;
+        currentGame.bugsFrequency = 0;
+        currentGame.score = 0;
+        currentGame.bugs = [];
+        document.getElementById("score").innerHTML = current.score;
         document.getElementById("game-board").style.display = "none";
         document.getElementById("finished").style.display = "block";
         document.getElementById("score").innerHTML = 0;
       }
 
-    /* if (scoreMiddle(score)) {
-      currentGame.gameOver = false;
-      document.querySelector(".middle").style.display = "block";
-      alert('test');
-    } */
+    if (scoreMiddle(score)) {
+    }
+
+    if (currentGame.score === 6000) {
+
+    }
 
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 100;

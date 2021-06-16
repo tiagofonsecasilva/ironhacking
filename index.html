@@ -21,7 +21,6 @@
     <script type="text/javascript" src="./js/fire.js" defer></script>
     <script type="text/javascript" src="./js/hero.js" defer></script>
     <script type="text/javascript" src="./js/bugs.js" defer></script>
-    <script type="text/javascript" src="./js/music.js" defer></script>
     <script type="text/javascript" src="./js/game.js" defer></script>
     <script type="text/javascript" src="./js/Intro/typing.js" defer></script>
     <script type="text/javascript" src="./js/sound.js" defer></script>
@@ -34,13 +33,13 @@
                     <div class="fixed-top" class="game-intro">
                         <button id="start-button" class="neon">Start <br>Game</button>
                         <div id="scoreDiv"><span id="initialPrice">BootCamp Initial Price: </span><span id="currentPrice">BootCamp Current Price: </span><span id="score">6000</span><span> €</span></div>
-                        <div class="musicOn">
-                            <audio id="audio" style="display:none;" src="./music/christmas.mp3">
+                        <div>
+                            <button id="button">Play</button>
                           </div>
-                          <div class="container2">
-                            <p class="title">Turn music on or off</p>
-                            <img class="musicOn" src="./music/soundOnOff/soundOnBlack.png" alt="">        
-                            </div>
+                          <audio id="player">
+                            <source src='./sound/intro.mp3' type='audio/mpeg'/>
+                          </audio>
+                          <a href="#" title="Play video" class="play"></a>
                     </section>
                 <div class="col-md-9">
                     <section class="align-middle">
@@ -57,12 +56,13 @@
                         <section id="game-board">
                             <canvas id="canvas" width="900" height="420"></canvas>
                         </section>
-                        <section id="finished">
-                            <h1>Congratulations your code is now clean, <br>your are a winner, <br>your Bootcamp is free. <br>Grab a beer!</h1>
-                        </section>
                         <section id="middle">
                             <img class=middle src="./images/raccon2.gif" alt="">
                         </section>
+                        <section id="finished">
+                            <h1>Congratulations your code is now clean, <br>your are a winner, <br>your Bootcamp is free. <br>Grab a beer!</h1>
+                        </section>
+
                     </div>
                     </div>
 
