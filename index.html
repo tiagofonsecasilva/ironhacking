@@ -30,42 +30,41 @@
         <div class="container">
             <div class="row" id=firstRow>
                 <section class="col-md-3" id="section-left">
-                    <div class="game-intro">
-                        <button id="start-button" class="neon">Start Game</button>
-                        <p>Use the left and right arrow to control your IronHacker!</p>
-                        <img src="images/arrows.png" alt="" class="arrows-img" />
+                    <div class="fixed-top" class="game-intro">
+                        <button id="start-button" class="neon">Start <br>Game</button>
                         <div id="scoreDiv"><span id="initialPrice">BootCamp Initial Price: </span><span id="currentPrice">BootCamp Current Price: </span><span id="score">6000</span><span> €</span></div>
                         <div class="musicOn">
                             <audio id="audio" style="display:none;" src="./music/christmas.mp3">
                           </div>
-                          <div class="container">
+                          <div class="container2">
                             <p class="title">Turn music on or off</p>
                             <img class="musicOn" src="./music/soundOnOff/soundOnBlack.png" alt="">        
                             </div>
                     </section>
                 <div class="col-md-9">
-                    <section id="section-right">
-                        <div class="col-md-9">
-
+                    <section class="align-middle">
+                        <div class="disclaimer">
+                            <p id="welcome"></p>
+                            <p id="line1" class="hidden">If you want to become an IronHacker you need to debug your javascript code, keep your code clean and pay less for your bootcamp...</p>
+                            <p id="line2" class="hidden">Clear the Bug code and see the price of your Ironhacking Bootcamp goes down.</p>
+                            <p id="line3" class="hidden">Just move left or right and clean with space key...</p>
+                            <p id="line4" class="hidden">Good Luck</p>
+                            <p id="cursor-line" class="visible">&gt;&gt; <span class="typed-cursor">&#9608;</span></p>
                         </div>
                     </section>
-                    <section id="game-board">
-                        <canvas id="canvas" width="600" height="700"></canvas>
-                    </section>
-                    <section id="finished">
-                        <h1>Congratulations your code is now clean, <br>your are a winner, <br>your Bootcamp is free. <br>Grab a beer!</h1>
-                    </section>
+                    <div id=test>
+                        <section id="game-board">
+                            <canvas id="canvas" width="900" height="420"></canvas>
+                        </section>
+                        <section id="finished">
+                            <h1>Congratulations your code is now clean, <br>your are a winner, <br>your Bootcamp is free. <br>Grab a beer!</h1>
+                        </section>
+                    </div>
+
                 </div>
             </div>
             <div class="row">
-                <div id="section-bottom">
-                    <p id="welcome"></p>
-                    <p id="line1" class="hidden">If you want to become an IronHacker you need to debug your javascript code, keep your code clean and pay less for your bootcamp...</p>
-                    <p id="line2" class="hidden">Clear the Bug code and see the price of your Ironhacking Bootcamp goes down.</p>
-                    <p id="line3" class="hidden">Just move left or right and clean with space key...</p>
-                    <p id="line4" class="hidden">Good Luck</p>
-                    <p id="cursor-line" class="visible">&gt;&gt; <span class="typed-cursor">&#9608;</span></p>
-                </div>
+
             </div>
           </div>
     </div>

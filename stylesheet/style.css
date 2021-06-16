@@ -11,11 +11,6 @@
   padding-right: 50px;
 }
 
-.section-bottom {
-  /* background-color: black;
-  margin-top: 100px;
-  padding-left: 50px; */
-}
 .col-md-9 {
   padding-left: 0;
 }
@@ -59,11 +54,5 @@ body {
   }
   
 #welcome {
-  color:white;
-  text-align: left;
-}
-
-#welcome2 {
-  color:white;
   text-align: left;
 }

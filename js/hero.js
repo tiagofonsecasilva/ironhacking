@@ -1,10 +1,10 @@
 
 class Hacker { 
     constructor () { 
-        this.x = 220;
-        this.y = 615;
-        this.width = 85;
-        this.heigth = 85;
+        this.x = 350;
+        this.y =365;
+        this.width = 55;
+        this.heigth = 55;
         this.image = new Image();
     }
 
@@ -18,12 +18,12 @@ class Hacker {
         switch(keyCode) {
             case 37: 
                 if (this.x > 10) {
-                    this.x -= 10;
+                    this.x -= 20;
                 }
             break;
             case 39: 
-                if (this.x < 895) {
-                    this.x += 10
+                if (this.x < 845) {
+                    this.x += 20;
                 }
             break;
         }

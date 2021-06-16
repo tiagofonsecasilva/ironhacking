@@ -5,6 +5,9 @@
 canvas {
   background-image: url(../images/0009.gif);
   background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 65px;
+  margin-left: 61px;
 }
 
 #score {

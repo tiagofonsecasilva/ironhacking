@@ -4,8 +4,8 @@ class Fire {
     constructor (x) {
         this.x = x;
         this.y = 615;
-        this.width = 25;
-        this.heigth = 25;
+        this.width = 15;
+        this.heigth = 15;
     }
 
     draw() { 
