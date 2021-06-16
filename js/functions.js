@@ -22,6 +22,12 @@ function detectCollision(bug) {
     );
   }
 
+  function addTheImage() {
+    var img = document.createElement('img');
+    img.src = "../images/";
+    document.body.appendChild(img);
+    }   
+
   function checkBugs() {
     setInterval(() => {
         currentGame.bugs.forEach((bug, index) => {

@@ -2,21 +2,20 @@ console.log("I'm a javascript");
 
 const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
-document.getElementById("game-board").style.display = "none";
+document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
-var customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
+const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
 }
 
 document.getElementById("start-button").onclick = () => {
-  document.getElementById("game-board").style.display = "block"; 
-  document.getElementById("section-right").style.display ="none";
+  document.querySelector(".align-middle").style.display = "none";
+  document.getElementById("test").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
   document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
-  document.getElementById("section-bottom").style.display = "none";
   document.getElementById("start-button").style.display = "none";
   startGame();
 };
@@ -25,7 +24,7 @@ document.addEventListener('keydown', (e) => {
   e.preventDefault()
   currentGame.hacker.moveHacker(e.keyCode);
   if (e.keyCode === 32) {
-      currentGame.fires.push(new Fire(currentGame.hacker.x+29.5));
+      currentGame.fires.push(new Fire(currentGame.hacker.x+27,5));
   }
 });
 
@@ -59,8 +58,8 @@ function updateCanvas() {
   bugsFrequency++;
   console.log(bugsFrequency)
   if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
-  bugsFrequency > 500 && bugsFrequency % 80 === 0) {
-    const randomBugX = Math.floor(Math.random() * 600);
+  bugsFrequency > 500 && bugsFrequency % 100 === 0) {
+    const randomBugX = Math.floor(Math.random() * 900);
     const randomBugY = 0;
     const newBug = new Bug(
       randomBugX,
@@ -84,7 +83,7 @@ function updateCanvas() {
 
     if (detectCollision(bug)) {
       bug.blow = true
-      currentGame.score-=100;
+      currentGame.score--;
       document.getElementById('score').innerHTML = currentGame.score;
     }
 
@@ -110,14 +109,16 @@ function updateCanvas() {
       document.getElementById("score").innerHTML = currentGame.score;
       currentGame.bugs.splice(index, 1);
     }
+
+    if (currentGame.score === 5000) {
+        var img = document.createElement('img');
+        img.src = "../images/intro.gif";
+        document.body.appendChild(img);
+    }
   });
 
   if (!currentGame.gameOver) {
     currentGame.animationId = requestAnimationFrame(updateCanvas);
-  }
-
-  if (currentGame.score === 5000) {
-    rakoon.draw()
   }
 
 }

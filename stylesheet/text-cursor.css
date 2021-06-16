@@ -1,10 +1,15 @@
+.disclaimer {
+  padding: 70px;
+  color: #7f7f7f;
+}
+
 .hidden {
   display: none;
   visibility: hidden;
 }
 
 .visible {
-  color: white;
+  color: #7f7f7f;
   text-align: left;
 }
 

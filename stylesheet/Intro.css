@@ -1,3 +1,9 @@
+  
+#welcome {
+  color:green;
+  text-align: left;
+}
+
 #introImg {
     width: 100%;
 }
@@ -8,6 +14,28 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 810px; 
+}
+
+.fixed-top {
+  position: fixed;
+  top: 12%;
+  z-index: 1030;
+  right: 71%;
+  color: white;
+}
+
+.align-middle {
+    background-image: url(../images/iterm.png);
+    margin-top: 40%;
+    height: 800px;
+    background-repeat: no-repeat;
+}
+
+#test {
+  background-image: url(../images/iterm.png);
+  margin-top: 40%;
+  height: 800px;
+  background-repeat: no-repeat;
 }
 
 /* Neo Effects */
