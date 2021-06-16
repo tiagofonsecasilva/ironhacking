@@ -6,12 +6,15 @@ document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
 document.getElementById("middle").style.display = "none";
+let intro = new Audio('./sound/intro.mp3');
+intro.play();
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
 }
 
 document.getElementById("start-button").onclick = () => {
+  intro.pause();
   document.querySelector(".align-middle").style.display = "none";
   document.getElementById("test").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
