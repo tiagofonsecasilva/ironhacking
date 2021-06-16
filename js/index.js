@@ -26,6 +26,7 @@ document.addEventListener('keydown', (e) => {
   currentGame.hacker.moveHacker(e.keyCode);
   if (e.keyCode === 32) {
       currentGame.fires.push(new Fire(currentGame.hacker.x+27,5));
+      fire.play();
   }
 });
 
@@ -39,6 +40,7 @@ function startGame() {
   currentFire = new Fire();
   currentGame.fire = currentFire;
   currentGame.fire.draw();
+  song.play();
   checkBugs();
   updateCanvas();
 };
@@ -76,6 +78,7 @@ function updateCanvas() {
     currentGame.fires.forEach((fire, i) => {
       if (detectCollisionFire(bug, fire)) {
         bug.blow = true
+        clean.play();
         currentGame.fires.splice(i, 1)
         currentGame.score-= 100;
         document.getElementById('score').innerHTML = currentGame.score;
@@ -84,6 +87,7 @@ function updateCanvas() {
 
     if (detectCollision(bug)) {
       bug.blow = true
+      clean.play();
       currentGame.score--;
       document.getElementById('score').innerHTML = currentGame.score;
     }
@@ -105,11 +109,11 @@ function updateCanvas() {
         document.getElementById("score").innerHTML = 0;
       }
 
-    if (scoreMiddle(score)) {
+    /* if (scoreMiddle(score)) {
       currentGame.gameOver = false;
       document.querySelector(".middle").style.display = "block";
       alert('test');
-    }
+    } */
 
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 100;
