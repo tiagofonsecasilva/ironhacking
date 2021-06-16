@@ -2,18 +2,19 @@
     width: 100%;
 }
 
-.container {
-    background-color:#7844e6;
-    background-image: url(../images/intro.gif);
-    background-size: auto;
+.header {
+    background-image: url(../images/intro1.gif);
+    background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
+    height: 810px; 
 }
 
 /* Neo Effects */
 
 @font-face {
   font-family: neon;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  src: url(../fonts/neon.ttf);
 }
 
 .neon {
@@ -74,6 +75,9 @@
 button#start-button {
     font-size: 39px;
     line-height: 50px;
+    font-size: 39px;
+    line-height: 50px;
+    border-radius: 20px;
 };
 
 #section-right {}
