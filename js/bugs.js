@@ -15,7 +15,7 @@ class Bug {
         if(!this.blow) {
             this.image.src = './images/1x/Asset-3bug.png';
         } else {
-            this.image.src = '../images/';
+            this.image.src = '../images/broom3-unscreen.gif';
            
         }
         context.drawImage(this.image, this.x, this.y, this.width, this.height);
