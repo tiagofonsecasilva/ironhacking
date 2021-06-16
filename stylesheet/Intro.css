@@ -77,7 +77,7 @@ button#start-button {
 
 .flux {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 70%;
     transform: translate(-50%, -50%);
     font-size: 75px;
