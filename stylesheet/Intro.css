@@ -16,6 +16,11 @@
   height: 70px;
 }
 
+#restart-button {
+  height: 63px;
+  padding-left: 97px;
+}
+
 .header {
     background-image: url(../images/intro1.gif);
     background-position: center center;
@@ -54,84 +59,3 @@ body {
   /* padding-bottom: 800px */
 }
 
-/* Neo Effects */
-
-@font-face {
-  font-family: neon;
-  src: url(../fonts/neon.ttf);
-}
-
-.neon {
-  font-family: neon;
-  color: #FB4264;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-  font-family: neon;
-  color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-  animation: neon 1s ease infinite;
-  -moz-animation: neon 1s ease infinite;
-  -webkit-animation: neon 1s ease infinite;
-}
-
-@keyframes neon {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-    color: #FED128;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-    color: #806914;
-  }
-}
-
-.flux {
-  animation: flux 2s linear infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 2s linear infinite;
-  -o-animation: flux 2s linear infinite;
-}
-
-@keyframes flux {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
-  }
-}
-
-/* // Neo customize changes */
-
-/* button#start-button {
-    font-size: 39px;
-    line-height: 50px;
-    font-size: 39px;
-    line-height: 50px;
-    border-radius: 20px;
-};
-
-#section-right {}
-
-.flux {
-    position: absolute;
-    top: 30%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    font-size: 75px;
-} */
-
-/* //Buttom play */

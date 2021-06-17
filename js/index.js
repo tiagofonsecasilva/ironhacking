@@ -4,6 +4,7 @@ const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
 document.getElementById("gameCanvas").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
+document.getElementById("restart-button").style.display = "none";
 // document.getElementById("player").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
@@ -16,10 +17,17 @@ document.getElementById("start-button").onclick = () => {
   document.getElementById("gameCanvas").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
   document.getElementById("button").style.display = "none";
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("restart-button").style.display = "block";
   // document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
   startGame();
 };
+
+document.getElementById("restart-button").onclick = () => {
+  document.getElementById("initialPrice").style.display = "none";
+  onClick=window.location.reload();
+}
 
 document.addEventListener('keydown', (e) => {
   e.preventDefault()

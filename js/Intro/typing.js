@@ -97,10 +97,10 @@ var skip = function() {
 
 
 // trigger skip and rewrite on pressing enter or spacebar
-window.onkeydown = function(key){
-  if (key.which === 13 || key.which === 32) {
-    skip();
-    originId.forEach(rewriteText);
-    document.getElementById('cursor-line').className = 'visible';
-  }
-};
+// window.onkeydown = function(key){
+//   if (key.which === 13 || key.which === 32) {
+//     skip();
+//     originId.forEach(rewriteText);
+//     document.getElementById('cursor-line').className = 'visible';
+//   }
+// };
