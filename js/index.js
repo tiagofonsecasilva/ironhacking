@@ -2,7 +2,7 @@ console.log("I'm a javascript");
 
 const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
-document.getElementById("test").style.display = "none";
+document.getElementById("gameCanvas").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("player").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
@@ -12,11 +12,11 @@ if (customerName!= null) {
 
 document.getElementById("start-button").onclick = () => {
   document.querySelector(".align-middle").style.display = "none";
-  document.getElementById("test").style.display = "block"; 
+  document.getElementById("gameCanvas").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
   // document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
-  document.getElementById("start-button").style.display = "none";
+  document.getElementById("start-button").style.display = "none"; 
   startGame();
 };
 
@@ -62,7 +62,7 @@ function updateCanvas() {
   console.log(bugsFrequency)
   if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
   bugsFrequency > 500 && bugsFrequency % 80 === 0) {
-    const randomBugX = Math.floor(Math.random() * 885);
+    const randomBugX = Math.floor(Math.random() * (700 - 200) + 200);
     const randomBugY = 0;
     const newBug = new Bug(
       randomBugX,
@@ -107,11 +107,11 @@ function updateCanvas() {
       };
 
 
-    if (currentGame.score === 1500) {
+    if (currentGame.score === 1400) {
       document.querySelector("canvas").classList.add("racoon");
       setTimeout(function(){
-      window.alert("Well done, keep cleaning, you're becoming a FullStack");
-    }, 1000);
+      window.alert("console.log(Well done, keep cleaning, you're becoming a FullStack)");
+    }, 500);
       fire.volume = 0;
       currentGame.score-= 100;
       setTimeout(function(){
@@ -122,8 +122,8 @@ function updateCanvas() {
     if (currentGame.score === 4000) {
       document.querySelector("canvas").classList.add("pride");
       setTimeout(function(){
-        window.alert("Fight for Equality");
-      }, 1000);
+        window.alert("console.log(Fight for Equality)");
+      }, 500);
       fire.volume = 0;
       currentGame.score-= 100;
       setTimeout(function(){
@@ -141,7 +141,7 @@ function updateCanvas() {
         currentGame.bugs = [];
         document.getElementById("score").innerHTML = 0;
         setTimeout(function(){
-          window.alert("console.log(console.log(Congratulations, your code is now clean, you're a winner, your Bootcamp won't cost you a penny. Grab a beer))");
+          window.alert("console.log(Congratulations, your code is now clean, you're a winner, your Bootcamp won't cost you a penny. Grab a beer))");
         }, 1000);
       };
 

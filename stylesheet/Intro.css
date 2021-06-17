@@ -4,17 +4,21 @@
   text-align: left;
 }
 
-#introImg {
+/* #introImg {
     width: 100%;
-}
+} */
 
 .header {
     background-image: url(../images/intro1.gif);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 810px; 
 }
+
+body {
+  background-color: #1a0c43;
+}
+
 
 .fixed-top {
   font-family: monospace;
@@ -34,7 +38,7 @@
     margin-top: 20%
 }
 
-#test {
+#gameCanvas {
   background-image: url(../images/iterm.png);
   margin-top: 20%;
   height: 564px;
