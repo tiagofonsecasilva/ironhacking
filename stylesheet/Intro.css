@@ -17,11 +17,14 @@
 }
 
 .fixed-top {
+  font-family: monospace;
+  font-size: x-large;
+  font-style: oblique;
   position: fixed;
   top: 12%;
   z-index: 1030;
   right: 71%;
-  color: white;
+  color: aquamarine;
 }
 
 .align-middle {
