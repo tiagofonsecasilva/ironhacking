@@ -11,6 +11,7 @@
 .visible {
   color: #7f7f7f;
   text-align: left;
+  padding-right: 50px;
 }
 
 p#cursor-line {
