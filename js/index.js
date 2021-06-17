@@ -4,19 +4,20 @@ const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
 document.getElementById("gameCanvas").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
-document.getElementById("player").style.display = "none";
+// document.getElementById("player").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
 }
 
 document.getElementById("start-button").onclick = () => {
+  audio.pause()
   document.querySelector(".align-middle").style.display = "none";
   document.getElementById("gameCanvas").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
+  document.getElementById("button").style.display = "none";
   // document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
-  document.getElementById("start-button").style.display = "none"; 
   startGame();
 };
 

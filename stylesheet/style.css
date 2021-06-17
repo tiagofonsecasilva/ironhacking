@@ -42,14 +42,12 @@ body {
     width: 150px;
   }
   
-  body button {
+  #button {
     font-size: 30px;
     background-color: cadetblue;
-    color: #a27a00;
     padding: 7px 6px;
-    box-shadow: 0;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   
 #welcome {

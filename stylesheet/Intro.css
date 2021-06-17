@@ -8,6 +8,14 @@
     width: 100%;
 } */
 
+#scoreDiv {
+  margin-top: 20px;
+}
+
+#start-button {
+  height: 70px;
+}
+
 .header {
     background-image: url(../images/intro1.gif);
     background-position: center center;
@@ -108,7 +116,7 @@ body {
 
 /* // Neo customize changes */
 
-button#start-button {
+/* button#start-button {
     font-size: 39px;
     line-height: 50px;
     font-size: 39px;
@@ -124,6 +132,6 @@ button#start-button {
     left: 70%;
     transform: translate(-50%, -50%);
     font-size: 75px;
-}
+} */
 
 /* //Buttom play */
