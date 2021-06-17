@@ -1,3 +1,20 @@
+/* netlify modifications */
+.container {
+  margin-left: 0!important;
+  margin-right: 0!important;
+  max-width: 100%!important;
+}
+
+.col-md-3 {
+  width: 22%;
+}
+
+.col-md-9 {
+  width: 78%;
+}
+/* netlify modifications */
+
+
 
 .header {
     display: flex;
