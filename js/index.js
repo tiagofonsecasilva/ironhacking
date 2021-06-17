@@ -12,7 +12,7 @@ if (customerName!= null) {
 }
 
 document.getElementById("start-button").onclick = () => {
-  audio.pause()
+  audio.pause();
   document.querySelector(".align-middle").style.display = "none";
   document.getElementById("gameCanvas").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
@@ -26,10 +26,10 @@ document.getElementById("start-button").onclick = () => {
 document.getElementById("restart-button").onclick = () => {
   document.getElementById("initialPrice").style.display = "none";
   onClick=window.location.reload();
-}
+};
 
 document.addEventListener('keydown', (e) => {
-  e.preventDefault()
+  e.preventDefault();
   currentGame.hacker.moveHacker(e.keyCode);
   if (e.keyCode === 32) {
       currentGame.fires.push(new Fire(currentGame.hacker.x+20));
@@ -52,7 +52,7 @@ function startGame() {
   song.volume = 0.1;
   checkBugs();
   updateCanvas();
-};
+}
 
 function updateCanvas() {
   context.clearRect(0, 0, hackingCanvas.clientWidth, hackingCanvas.clientHeight);
@@ -65,10 +65,10 @@ function updateCanvas() {
     if (fire.y < 0) {
         currentGame.fires.splice(index, 1);
     }
-  })
+  });
 
   bugsFrequency++;
-  console.log(bugsFrequency)
+  console.log(bugsFrequency);
   if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
   bugsFrequency > 500 && bugsFrequency % 80 === 0) {
     const randomBugX = Math.floor(Math.random() * (700 - 200) + 200);
@@ -86,22 +86,22 @@ function updateCanvas() {
 
     currentGame.fires.forEach((fire, i) => {
       if (detectCollisionFire(bug, fire)) {
-        bug.clean = true
+        bug.clean = true;
         clean.play();
         clean.volume = 0.1;
-        currentGame.fires.splice(i, 1)
+        currentGame.fires.splice(i, 1);
         currentGame.score-= 200;
         document.getElementById('score').innerHTML = currentGame.score;
-      }
+      };
     });
 
     if (detectCollision(bug)) {
-      bug.clean = true
+      bug.clean = true;
       clean.play();
-      currentGame.bugs.splice(index, 1)
+      currentGame.bugs.splice(index, 1);
       currentGame.score-= 200;
       document.getElementById('score').innerHTML = currentGame.score;
-    }
+    };
 
       if (currentGame.score >= 7000) {
       document.querySelector("canvas").style.backgroundImage = "url('../images/raccon2.gif')";
@@ -128,7 +128,7 @@ function updateCanvas() {
         setTimeout(function(){
           document.querySelector("canvas").classList.remove("pride");
         }, 1000);
-      }  
+      };
 
 
     if (currentGame.score === 1400) {
@@ -142,7 +142,7 @@ function updateCanvas() {
       setTimeout(function(){
         document.querySelector("canvas").classList.remove("racoon");
       }, 1000);
-    }
+    };
 
     if (currentGame.score <= 0) {
       document.querySelector("canvas").style.backgroundImage = "url('../images/raccon.gif')";

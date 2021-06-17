@@ -3,9 +3,9 @@ let clean = new Audio("./sound/explode.mp3");
 let fire = new Audio("./sound/fire.mp3");
 let song = new Audio("./sound/song.mp3");
 let explode = new Audio("./sound/explode.mp3");
-let fireworks = new Audio("../sound/fireworks.mp3")
-let gameOver = new Audio("../sound/gamOVER.wav")
-let play = function(){document.getElementById("audio").play()}
+let fireworks = new Audio("../sound/fireworks.mp3");
+let gameOver = new Audio("../sound/gamOVER.wav");
+let play = function(){document.getElementById("audio").play()};
 
 if (typeof song.loop == 'boolean')
 {
