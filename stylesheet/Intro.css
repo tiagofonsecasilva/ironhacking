@@ -35,8 +35,7 @@ body {
 
 .fixed-top {
   font-size: 24px;
-  top: 13%;
-  z-index: 1030;
+  top: 9%;
   right: 73%;
   color: aquamarine;
 }
