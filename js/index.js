@@ -4,7 +4,7 @@ const hackingCanvas = document.getElementById("canvas");
 const context = hackingCanvas.getContext("2d");
 document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
-document.getElementById("finished").style.display = "none";
+// document.getElementById("finished").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
@@ -14,7 +14,7 @@ document.getElementById("start-button").onclick = () => {
   document.querySelector(".align-middle").style.display = "none";
   document.getElementById("test").style.display = "block"; 
   document.getElementById("initialPrice").style.display = "none";
-  document.getElementById("finished").style.display = "none";
+  // document.getElementById("finished").style.display = "none";
   document.getElementById("currentPrice").style.display = "block";
   document.getElementById("start-button").style.display = "none";
   startGame();
@@ -80,7 +80,7 @@ function updateCanvas() {
         bug.clean = true
         clean.play();
         currentGame.fires.splice(i, 1)
-        currentGame.score-= 100;
+        currentGame.score-= 500;
         document.getElementById('score').innerHTML = currentGame.score;
       }
     });
@@ -89,35 +89,50 @@ function updateCanvas() {
       bug.clean = true
       clean.play();
       currentGame.bugs.splice(index, 1)
-      currentGame.score-= 100;
+      currentGame.score-= 500;
       document.getElementById('score').innerHTML = currentGame.score;
     }
 
-      if (currentGame.score > 6000) {
+      if (currentGame.score >= 7000) {
+      document.querySelector("canvas").style.backgroundImage = "url('../images/raccon2.gif')";
       currentGame.gameOver = true;
       song.pause();
       fire.volume = 0;
       currentGame.bugsFrequency = 0;
-      currentGame.score = 0;
       currentGame.bugs = [];
-      document.getElementById("score").innerHTML = 0;
-      document.getElementById("game-board").style.display = "none";
-      alert('Try UX Bootcamp! Your Game is Over! Try again')
+      document.getElementById("score").innerHTML = 10000;
+      setTimeout(function(){
+        alert('Try UX Bootcamp! Your Web-Dev Bootcamp will be very expensive! Your Game is Over! Try again');
+      }, 1000);
       };
 
 
-    if (currentGame.score === 2500) {
+    if (currentGame.score === 1500) {
       document.querySelector("canvas").classList.add("racoon");
+      setTimeout(function(){
       window.alert("Well done, keep cleaning, you're becoming a FullStack");
+    }, 1000);
       fire.volume = 0;
       currentGame.score-= 100;
       setTimeout(function(){
         document.querySelector("canvas").classList.remove("racoon");
-      }, 3000);
+      }, 1000);
     }
 
-        if (currentGame.score <= 5900) {
-        document.querySelector("canvas").style.backgroundImage = "url('../images/raccon2.gif')";
+    if (currentGame.score === 4000) {
+      document.querySelector("canvas").classList.add("pride");
+      setTimeout(function(){
+        window.alert("Fight for Equality");
+      }, 1000);
+      fire.volume = 0;
+      currentGame.score-= 100;
+      setTimeout(function(){
+        document.querySelector("canvas").classList.remove("pride");
+      }, 1000);
+    }
+
+        if (currentGame.score <= 0) {
+        document.querySelector("canvas").style.backgroundImage = "url('../images/raccon.gif')";
         currentGame.gameOver = true;
         song.pause();
         fire.volume = 0;
@@ -126,12 +141,12 @@ function updateCanvas() {
         currentGame.bugs = [];
         document.getElementById("score").innerHTML = 0;
         setTimeout(function(){
-          window.alert("console.log(Congratulations your code is now clean, your are a winner, your Bootcamp doesn't cost a penny . Grab a beer)");
-        }, 3000);
+          window.alert("console.log(console.log(Congratulations, your code is now clean, you're a winner, your Bootcamp won't cost you a penny. Grab a beer))");
+        }, 1000);
       };
 
     if (bug.y > hackingCanvas.height) {
-      currentGame.score+= 100;
+      currentGame.score+= 300;
       document.getElementById("score").innerHTML = currentGame.score;
       currentGame.bugs.splice(index, 1);
     }

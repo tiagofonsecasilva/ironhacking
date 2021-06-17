@@ -26,16 +26,17 @@
 
 .align-middle {
     background-image: url(../images/iterm.png);
-    margin-top: 40%;
-    height: 800px;
+    height: 564px;
     background-repeat: no-repeat;
+    margin-top: 20%
 }
 
 #test {
   background-image: url(../images/iterm.png);
-  margin-top: 40%;
-  height: 800px;
+  margin-top: 20%;
+  height: 564px;
   background-repeat: no-repeat;
+  /* padding-bottom: 800px */
 }
 
 /* Neo Effects */

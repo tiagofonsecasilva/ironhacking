@@ -8,6 +8,7 @@ canvas {
   background-repeat: no-repeat;
   margin-top: 65px;
   margin-left: 61px;
+  background-position: center;
 }
 
 .racoon {
@@ -16,7 +17,18 @@ canvas {
   background-repeat: no-repeat;
   margin-top: 65px;
   margin-left: 61px;
+  background-position: center;
 }
+
+.pride {
+  background-image: url(../images/pridegif.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 65px;
+  margin-left: 61px;
+  background-position: center;
+}
+
 
 #score {
  color: red
