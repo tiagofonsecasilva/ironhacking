@@ -13,12 +13,12 @@
 }
 
 #start-button {
-  height: 70px;
+  height: 57px;
 }
 
 #restart-button {
-  height: 63px;
-  padding-left: 97px;
+  height: 56px;
+  padding-left: 70px;
 }
 
 .header {
@@ -34,13 +34,10 @@ body {
 
 
 .fixed-top {
-  font-family: monospace;
-  font-size: x-large;
-  font-style: oblique;
-  position: fixed;
-  top: 12%;
+  font-size: 24px;
+  top: 13%;
   z-index: 1030;
-  right: 71%;
+  right: 73%;
   color: aquamarine;
 }
 
