@@ -10,6 +10,14 @@ canvas {
   margin-left: 61px;
 }
 
+.racoon {
+  background-image: url(../images/raccon.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 65px;
+  margin-left: 61px;
+}
+
 #score {
  color: red
 }

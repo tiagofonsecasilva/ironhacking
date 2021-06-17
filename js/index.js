@@ -5,7 +5,6 @@ const context = hackingCanvas.getContext("2d");
 document.getElementById("test").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finished").style.display = "none";
-document.getElementById("middle").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
@@ -25,7 +24,7 @@ document.addEventListener('keydown', (e) => {
   e.preventDefault()
   currentGame.hacker.moveHacker(e.keyCode);
   if (e.keyCode === 32) {
-      currentGame.fires.push(new Fire(currentGame.hacker.x+27,5));
+      currentGame.fires.push(new Fire(currentGame.hacker.x+20));
       fire.play();
   }
 });
@@ -41,6 +40,7 @@ function startGame() {
   currentGame.fire = currentFire;
   currentGame.fire.draw();
   song.play();
+  song.volume = 0.1;
   checkBugs();
   updateCanvas();
 };
@@ -61,7 +61,7 @@ function updateCanvas() {
   bugsFrequency++;
   console.log(bugsFrequency)
   if (bugsFrequency < 500 && bugsFrequency % 100 === 1 ||
-  bugsFrequency > 500 && bugsFrequency % 100 === 0) {
+  bugsFrequency > 500 && bugsFrequency % 80 === 0) {
     const randomBugX = Math.floor(Math.random() * 885);
     const randomBugY = 0;
     const newBug = new Bug(
@@ -88,37 +88,47 @@ function updateCanvas() {
     if (detectCollision(bug)) {
       bug.clean = true
       clean.play();
-      currentGame.score--;
+      currentGame.bugs.splice(index, 1)
+      currentGame.score-= 100;
       document.getElementById('score').innerHTML = currentGame.score;
     }
 
-      if (scoreBump(score)) {
+      if (currentGame.score > 6000) {
       currentGame.gameOver = true;
+      song.pause();
+      fire.volume = 0;
       currentGame.bugsFrequency = 0;
       currentGame.score = 0;
       currentGame.bugs = [];
-      document.getElementById("score").innerHTML = current.score;
+      document.getElementById("score").innerHTML = 0;
       document.getElementById("game-board").style.display = "none";
-      alert('Try UX Bootcamp! Game Over')
+      alert('Try UX Bootcamp! Your Game is Over! Try again')
       };
 
-      if (currentGame.score < 0) {
+
+    if (currentGame.score === 2500) {
+      document.querySelector("canvas").classList.add("racoon");
+      window.alert("Well done, keep cleaning, you're becoming a FullStack");
+      fire.volume = 0;
+      currentGame.score-= 100;
+      setTimeout(function(){
+        document.querySelector("canvas").classList.remove("racoon");
+      }, 3000);
+    }
+
+        if (currentGame.score <= 5900) {
+        document.querySelector("canvas").style.backgroundImage = "url('../images/raccon2.gif')";
         currentGame.gameOver = true;
+        song.pause();
+        fire.volume = 0;
         currentGame.bugsFrequency = 0;
         currentGame.score = 0;
         currentGame.bugs = [];
-        document.getElementById("score").innerHTML = current.score;
-        document.getElementById("game-board").style.display = "none";
-        document.getElementById("finished").style.display = "block";
         document.getElementById("score").innerHTML = 0;
-      }
-
-    if (scoreMiddle(score)) {
-    }
-
-    if (currentGame.score === 6000) {
-
-    }
+        setTimeout(function(){
+          window.alert("console.log(Congratulations your code is now clean, your are a winner, your Bootcamp doesn't cost a penny . Grab a beer)");
+        }, 3000);
+      };
 
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 100;

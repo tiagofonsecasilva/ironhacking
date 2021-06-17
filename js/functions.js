@@ -31,7 +31,7 @@ function detectCollision(bug) {
   function checkBugs() {
     setInterval(() => {
         currentGame.bugs.forEach((bug, index) => {
-            if(bug.blow) {
+            if(bug.clean) {
              currentGame.bugs.splice(index, 1)
         }
         })
