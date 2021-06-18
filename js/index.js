@@ -163,8 +163,8 @@ function updateCanvas() {
       document.getElementById("score").innerHTML = 0;
       setTimeout(function(){
         window.alert("console.log(Congratulations, your code is now clean. \nYou're a winner, your Bootcamp won't cost you a penny. \nGrab a beer)");
+        document.getElementById("credits").style.display = "block";
       }, 500);
-      document.getElementById("credits").style.display = "block";
     };
 
 
