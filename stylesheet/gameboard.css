@@ -11,6 +11,15 @@ canvas {
   background-position: center;
 }
 
+.credits {
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 65px;
+  margin-left: 61px;
+  background-position: center;
+}
+
 .racoon {
   background-image: url(../images/raccon2.gif);
   background-size: cover;

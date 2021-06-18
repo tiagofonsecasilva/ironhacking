@@ -1,0 +1,30 @@
+
+  
+
+    .wrapper {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 400px;
+      margin-left: -200px;
+      font: 300 30px/1;
+      text-align: center;
+      text-transform: uppercase;
+      animation: 60s credits linear infinite;
+    }
+    
+    .job {
+      margin-bottom: 5px;
+      font-size: 18px;
+      line-height: 1.5em;
+      color: white;
+    }
+    
+    @keyframes credits {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: -500%;
+      }
+    }

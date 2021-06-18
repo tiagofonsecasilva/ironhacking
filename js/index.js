@@ -6,6 +6,7 @@ document.getElementById("gameCanvas").style.display = "none";
 document.getElementById("currentPrice").style.display = "none";
 document.getElementById("finalPrice").style.display = "none";
 document.getElementById("restart-button").style.display = "none";
+document.getElementById("credits").style.display = "none";
 const customerName = prompt("Please enter your name to start the Game", "<your name goes here>");
 if (customerName!= null) {
   document.getElementById("welcome").innerHTML = "Hello " + customerName;
@@ -38,6 +39,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+let faster = false
 let currentGame;
 let bugsFrequency = 0;
 function startGame() {
@@ -84,6 +86,10 @@ function updateCanvas() {
     bug.y += 1;
     bug.draw();
 
+    if (faster === true) {
+    bug.y += 1.2;
+    }
+
     currentGame.fires.forEach((fire, i) => {
       if (detectCollisionFire(bug, fire)) {
         bug.clean = true;
@@ -124,10 +130,10 @@ function updateCanvas() {
         }, 500);
         fire.volume = 0;
         currentGame.score-= 200;
-        bugsFrequency++
         setTimeout(function(){
           document.querySelector("canvas").classList.remove("pride");
         }, 1000);
+        faster = true
       };
 
 
@@ -138,7 +144,6 @@ function updateCanvas() {
     }, 500);
       fire.volume = 0;
       currentGame.score-= 100;
-      bugsFrequency++
       setTimeout(function(){
         document.querySelector("canvas").classList.remove("racoon");
       }, 1000);
@@ -158,8 +163,10 @@ function updateCanvas() {
       document.getElementById("score").innerHTML = 0;
       setTimeout(function(){
         window.alert("console.log(Congratulations, your code is now clean. \nYou're a winner, your Bootcamp won't cost you a penny. \nGrab a beer)");
-      }, 1000);
+      }, 500);
+      document.getElementById("credits").style.display = "block";
     };
+
 
     if (bug.y > hackingCanvas.height) {
       currentGame.score+= 200;
