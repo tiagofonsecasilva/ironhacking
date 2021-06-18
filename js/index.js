@@ -120,7 +120,8 @@ function updateCanvas() {
       document.getElementById("score").innerHTML = 7000;
       setTimeout(function(){
         alert('Try Le Wagon Bootcamp, maybe Ruby is your thing! \nYour Web-Dev Javascript Bootcamp will be very expensive! \nYour Game is Over! \nPress restart to try again');
-      }, 1000);
+        document.getElementById("credits").style.display = "block";
+      }, 500);
       };
 
       if (currentGame.score === 4000) {
