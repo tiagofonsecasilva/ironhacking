@@ -1,6 +1,9 @@
 # Ironhacking
 Game of IRONHACKER Hero killing bugs to clean javascript and saving the world
 
+## Deployment
+Netlify - https://laughing-wilson-ca35af.netlify.app/
+
 ## Technologies
 * Canvas
 * JS
