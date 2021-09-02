@@ -6,3 +6,6 @@ Game of IRONHACKER Hero killing bugs to clean javascript and saving the world
 * JS
 * HTML
 * CSS
+
+[^footnote]: Test, [Link](https://google.com).
+
